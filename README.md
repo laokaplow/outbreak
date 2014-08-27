@@ -1,5 +1,14 @@
-Purpose:
-  Something to do with traceroutes
+Outbreak
+=====
+
+Outbreak is a tool to monitor and display traceroutes using geolocation on IP addresses.
 
 Meet the Team:
-  Lao: last name Akili
+-----
+Jennifer D. (Zysh):
+
+I like to code :D woooooooOooo
+
+Lao:
+
+last name Akili
