@@ -6,4 +6,7 @@ Outbreak is a tool to monitor and display traceroutes using geolocation on IP ad
 Meet The Team
 -----
 Jennifer D. (Zysh)
-I like to code :D woooooooOooo
+
+* I like to code :D woooooooOooo
+
+***
