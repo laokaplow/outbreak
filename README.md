@@ -30,7 +30,7 @@ $ ./env/bin/python install -r requirements.txt
 Meet the Team
 -----
 ###### Jennifer D. (Zysh)
-* I like to code :D woooooooOooo
+* I like to code :D woooOooOooo
 
 ###### Lao
 * last name Akili
