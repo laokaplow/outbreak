@@ -9,6 +9,15 @@ Jennifer D. (Zysh):
 
 I like to code :D woooooooOooo
 
+I suck.
+
 Lao:
 
 last name Akili
+
+Jeremy Thomas:
+Double major in Mathematics and Computer Science. Although I do not have a lot of experience, I am interested in backend development.
+
+Austen L.:
+
+Hi all. So, yeah. Here I am. With my commit. So, yeah. Enjoy it while you can 'cause I don't plan on doing this often. :)
