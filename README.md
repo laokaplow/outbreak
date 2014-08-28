@@ -3,12 +3,12 @@ Outbreak
 
 Outbreak is a tool to monitor and display traceroutes using geolocation on IP addresses.
 
-Meet the Team
+Meet the Team:
 -----
-###### Jennifer D. (Zysh)
+Jennifer D. (Zysh):
 
-* I like to code :D woooooooOooo
+I like to code :D woooooooOooo
 
-###### Lao
+Lao:
 
-* last name Akili
+last name Akili
