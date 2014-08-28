@@ -11,19 +11,19 @@ Manual Setup
 **This is just a test beep boop**
 
 If you don't have pip installed you'll need to get it now
-```python
+```
 $ sudo apt-get install python-pip 
 ```
 
 We don't want to pollute your environment so install virtualenv
-```python
+```
 $ sudo pip install virtualenv
 $ virtualenv env
 $ source ./env/bin/activate
 ```
 
 Now we can safely install our deps
-```python
+```
 $ ./env/bin/python install -r requirements.txt
 ```
 
