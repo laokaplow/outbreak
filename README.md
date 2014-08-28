@@ -3,7 +3,31 @@ Outbreak
 
 Outbreak is a tool to monitor and display traceroutes using geolocation on IP addresses.
 
-Meet the Team:
+Easy Setup With Docker
+-----
+
+Manual Setup
+-----
+**This is just a test beep boop**
+
+If you don't have pip installed you'll need to get it now
+```python
+$ sudo apt-get install python-pip 
+```
+
+We don't want to pollute your environment so install virtualenv
+```python
+$ sudo pip install virtualenv
+$ virtualenv env
+$ source ./env/bin/activate
+```
+
+Now we can safely install our deps
+```python
+$ ./env/bin/python install -r requirements.txt
+```
+
+Meet the Team
 -----
 ###### Jennifer D. (Zysh)
 * I like to code :D woooooooOooo
