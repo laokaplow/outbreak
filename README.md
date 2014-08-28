@@ -12,3 +12,6 @@ I like to code :D woooooooOooo
 Lao:
 
 last name Akili
+
+Jeremy Thomas:
+Double major in Mathematics and Computer Science. Although I do not have a lot of experience, I am interested in backend development.
