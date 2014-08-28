@@ -5,19 +5,14 @@ Outbreak is a tool to monitor and display traceroutes using geolocation on IP ad
 
 Meet the Team:
 -----
-Jennifer D. (Zysh):
+###### Jennifer D. (Zysh)
+* I like to code :D woooooooOooo
 
-I like to code :D woooooooOooo
+###### Lao
+* last name Akili
 
-I suck.
+###### Jeremy Thomas
+* Double major in Mathematics and Computer Science. Although I do not have a lot of experience, I am interested in backend development.
 
-Lao:
-
-last name Akili
-
-Jeremy Thomas:
-Double major in Mathematics and Computer Science. Although I do not have a lot of experience, I am interested in backend development.
-
-Austen L.:
-
-Hi all. So, yeah. Here I am. With my commit. So, yeah. Enjoy it while you can 'cause I don't plan on doing this often. :)
+###### Austen L.
+* Hi all. So, yeah. Here I am. With my commit. So, yeah. Enjoy it while you can 'cause I don't plan on doing this often. :)
