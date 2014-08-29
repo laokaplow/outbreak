@@ -40,3 +40,6 @@ Meet the Team
 
 ###### Austen L.
 * Hi all. So, yeah. Here I am. With my commit. So, yeah. Enjoy it while you can 'cause I don't plan on doing this often. :)
+
+###### Sebastien Hutt
+* Hi!
