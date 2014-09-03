@@ -42,4 +42,5 @@ Meet the Team
 * Hi all. So, yeah. Here I am. With my commit. So, yeah. Enjoy it while you can 'cause I don't plan on doing this often. :)
 
 ###### Sebastien Hutt
-* Hi!
+* Hi! Majoring in CSCI and minor in APCG. I used to be major in APCG but I switched because it wasn't technical enough.
+I have been focusing in computer graphics recently but I know Javascript and C, C++ pretty well. I did some Python a long time ago. I never used Git before so I hope this get posted!
