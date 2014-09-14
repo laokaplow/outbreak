@@ -1,3 +1,14 @@
+Website UI
+=====
+Created a basic website UI for our project.
+##### Things to note:
+* We are using the Google Maps API for the location of the user / routers.
+It needs a longitude and latitude.
+* I am not planning on using jQuerry at this point but we can use it later as
+an extended goal
+* Everything is gray right now as we didn't decide on a color scheme
+* Feel free to fork it and make any design change if you want
+
 PCap
 =====
 Added a trivial pcap program with a capture file.
