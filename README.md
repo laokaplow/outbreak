@@ -1,3 +1,14 @@
+Website UI
+=====
+Created a basic website UI for our project.
+##### Things to note:
+* We are using the Google Maps API for the location of the user / routers.
+It needs a longitude and latitude.
+* I am not planning on using jQuerry at this point but we can use it later as
+an extended goal
+* Everything is gray right now as we didn't decide on a color scheme
+* Feel free to fork it and make any design change if you want
+
 PCap
 =====
 Added a trivial pcap program with a capture file.
@@ -43,7 +54,7 @@ Meet the Team
 * Double major in Mathematics and Computer Science. Although I do not have a lot of experience, I am interested in backend development.
 
 ###### Austen L.
-* Hi all. So, yeah. Here I am. With my commit. So, yeah. Enjoy it while you can 'cause I don't plan on doing this often. :)
+* Hi all. So, yeah. Here I am. With my commit. So, yeah. Enjoy it while you can 'cause I don't plan on doing this often. :
 
 ###### Sebastien Hutt
 * Hi! Majoring in CSCI and minor in APCG. I used to be major in APCG but I switched because it wasn't technical enough.
