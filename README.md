@@ -54,7 +54,7 @@ Meet the Team
 * Double major in Mathematics and Computer Science. Although I do not have a lot of experience, I am interested in backend development.
 
 ###### Austen L.
-* Hi all. So, yeah. Here I am. With my commit. So, yeah. Enjoy it while you can 'cause I don't plan on doing this often. :
+* Hi all. So, yeah. Here I am. With my commit. So, yeah. Enjoy it while you can 'cause I don't plan on doing this often. :)
 
 ###### Sebastien Hutt
 * Hi! Majoring in CSCI and minor in APCG. I used to be major in APCG but I switched because it wasn't technical enough.
