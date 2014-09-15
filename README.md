@@ -1,22 +1,11 @@
-Website UI
-=====
-Created a basic website UI for our project.
-##### Things to note:
-* We are using the Google Maps API for the location of the user / routers.
-It needs a longitude and latitude.
-* I am not planning on using jQuerry at this point but we can use it later as
-an extended goal
-* Everything is gray right now as we didn't decide on a color scheme
-* Feel free to fork it and make any design change if you want
-
-PCap
-=====
-Added a trivial pcap program with a capture file.
-
 Outbreak
 =====
 
 Outbreak is a tool to monitor and display traceroutes using geolocation on IP addresses.
+
+How It Works
+----
+Blah Blah Flaks, PCap blah blah, Jquery blah, Google Maps Blah
 
 Easy Setup With Docker
 -----
@@ -39,7 +28,12 @@ $ source ./env/bin/activate
 
 Now we can safely install our deps
 ```
-$ ./env/bin/python install -r requirements.txt
+$ ./env/bin/pip install -r requirements.txt
+```
+
+Now run the webserver accordingly
+```
+$ python ./application.py
 ```
 
 Meet the Team
