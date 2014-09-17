@@ -90,13 +90,21 @@ google.maps.event.addDomListener(window, 'load', initialize);
 // Button controls for hiding and expending the "about" panel.
 var hide_about = document.getElementById("collapse_button");
 var about_div = document.getElementById("about_pannel");
-var expend_about = document.getElementById("expend_button");
 
-hide_about.onclick = function() {
-  about_div.style.visibility = "hidden";
-}
-
-expend_about.onclick = function() {
-  about_div.style.visibility = "visible";
-}
-
+var button_toggled = false;
+$(document).ready(function(){
+  $('#collapse_button').click(function(){
+    if (!button_toggled){
+      $('#about_pannel').animate({
+       'left' : '-=187px'
+      });
+      button_toggled = true;
+    }
+    else{
+      $('#about_pannel').animate({
+       'left' : '+=187px'
+      });
+      button_toggled = false;
+    }
+  });
+});
