@@ -33,7 +33,7 @@ $ ./env/bin/pip install -r requirements.txt
 
 Now run the webserver accordingly
 ```
-$ python ./application.py
+$ ./run.py
 ```
 
 Meet the Team
