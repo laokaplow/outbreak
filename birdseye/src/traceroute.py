@@ -1,66 +1,34 @@
-"""
-  Traceroute.py
-  adapted wholesale from https://blogs.oracle.com/ksplice/entry/learning_by_doing_writing_your
-  with code from https://github.com/leonidg/Poor-Man-s-traceroute/blob/master/traceroute.py
+#!/usr/bin/env python
 
-  could use a lot of work (especially error handeling) ...
+from subprocess import check_output, PIPE
+from re import findall
 
-  must be run as root
-"""
+def traceroute(dest):
+	"""
+		Finds IP adresses along route to dest
 
-import socket
-#import sys
+		Shells out to existing 'traceroute' program on system.
+		May take up to 5 seconds per traceroute (default timeout).
+		IPs are gathered with quick and dirty regex, 
+			all other info (like name, ping) is discarded.
+	"""
 
-icmp = socket.getprotobyname('icmp')
-udp = socket.getprotobyname('udp')
+	raw_result = check_output(
+		['traceroute', '-n', str(dest)], 
+		stdin = None, 
+		stderr = PIPE,  # stops subprocess from writting its stderr to our own
+		shell = False
+	)
 
-def create_sockets(ttl):
-  """
-  Sets up sockets necessary for the traceroute.  We need a receiving
-  socket and a sending socket.
-  """
-  recv_socket = socket.socket(socket.AF_INET, socket.SOCK_RAW, icmp)    
-  send_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, udp)
-  send_socket.setsockopt(socket.SOL_IP, socket.IP_TTL, ttl)
-  return recv_socket, send_socket
+	# extract IP adresses
+	ipv4_pattern = r"(\d+\.\d+\.\d+\.\d+)"  # close enough for our purpose
+	hops = findall(ipv4_pattern, raw_result)
+
+	return hops
 
 
-def traceroute(dest_name, port = 33434, max_hops = 30):
-  route = []
-  dest_addr = socket.gethostbyname(dest_name)
-
-  # find route
-  for ttl in range(1, max_hops):
-    recv_socket, send_socket = create_sockets(ttl)
-    recv_socket.bind(("", port))
-    send_socket.sendto("", (dest_name, port))
-    curr_addr = None
-    curr_name = None
-    try:
-      # socket.recvfrom() gives back (data, address), but we
-      # only care about the latter.
-      _, curr_addr = recv_socket.recvfrom(512)
-      curr_addr = curr_addr[0]  # address is given as tuple
-      try:
-        curr_name = socket.gethostbyaddr(curr_addr)[0]
-      except socket.error:
-        curr_name = curr_addr
-    except socket.error:
-      pass
-    finally:
-      send_socket.close()
-      recv_socket.close()
-
-    # add this leg to our route
-    leg = (curr_name, curr_addr if curr_addr is not None else "*")
-    route.append(leg)
-
-    # stop traceroute if we have reached the end
-    if curr_addr == dest_addr:
-      break
-
-  # todo: annotate route with pings
-
-  # todo: annotate route with locations
-    
-  return route
+if __name__ == '__main__':
+	import sys
+	# run traceroute on all given arguments
+	for dest in sys.argv[1:]:
+		print "{}: {}".format(dest, traceroute(dest))
