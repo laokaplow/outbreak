@@ -1,4 +1,3 @@
-from __future__ import absolute_import
 from birdseye.api.traceroute import Traceroute
 
 from flask import Flask, render_template
