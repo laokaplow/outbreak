@@ -1,3 +1,5 @@
 env/
+.tox/
 .DS_Store
 *.pyc
+MANIFEST
