@@ -2,5 +2,5 @@
 .DS_Store
 *.pyc
 MANIFEST
-birdseye/lib/python_components/
+birdseye/lib/python_modules/
 birdseye/lib/bower_components/
