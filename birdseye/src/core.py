@@ -23,6 +23,7 @@ def traceroute(dest):
     # extract IP adresses
     ipv4_pattern = r"(\d+\.\d+\.\d+\.\d+)"  # close enough for our purpose
     hops = findall(ipv4_pattern, raw_result)
+    hops.pop(0)
 
     return hops
 
