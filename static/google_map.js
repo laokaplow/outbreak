@@ -14,15 +14,16 @@ function initialize() {
   {
     "featureType": "water",
     "stylers": [
-      { "hue": "#ff0000" },
-      { "saturation": -100 },
-      { "lightness": -50 }
+      { "hue": "#b2d4ff" },
+      { "saturation": 30 },
+      { "lightness": 10 }
     ]
   },{
     "featureType": "landscape.natural.landcover",
     "stylers": [
-      { "saturation": -100 },
-      { "lightness": 58 }
+      { "hue": "#d4ffb2" },
+      { "saturation": 30 },
+      { "lightness": 0 }
     ]
   },{
     "featureType": "administrative.locality",
@@ -52,8 +53,9 @@ function initialize() {
   },{
     "featureType": "landscape.natural",
     "stylers": [
+      { "hue": "#eaddcc"},
       { "visibility": "simplified" },
-      { "saturation": -100 },
+      { "saturation": 50 },
       { "lightness": -3 }
     ]
   },{
@@ -89,22 +91,36 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 // Button controls for hiding and expending the "about" panel.
 var hide_about = document.getElementById("collapse_button");
-var about_div = document.getElementById("about_pannel");
+var submit_button = document.getElementById("submit_button");
+var ip_panel = document.getElementById("ip_panel");
+var ip_input = document.getElementById("search_field");
+
+var ip_counter = 0;
 
 var button_toggled = false;
 $(document).ready(function(){
   $('#collapse_button').click(function(){
     if (!button_toggled){
-      $('#about_pannel').animate({
-       'left' : '-=187px'
+      $('#ip_panel').animate({
+       'left' : '-=188px'
       });
       button_toggled = true;
     }
     else{
-      $('#about_pannel').animate({
-       'left' : '+=187px'
+      $('#ip_panel').animate({
+       'left' : '+=188px'
       });
       button_toggled = false;
     }
+  });
+  $('#submit_button').click(function(){
+    var text = ip_input.value;
+    ip_input.value = "";
+    $('#ip_list').append("<div class=\"ip\">" + text + "<input class=\"remove_button\" type=\"button\" value=\"x\"></div>");
+
+    $('.remove_button').click(function(){
+      $(this).parent().remove();
+      $(this).remove();
+    });
   });
 });

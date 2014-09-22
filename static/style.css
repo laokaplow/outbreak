@@ -5,49 +5,104 @@ html, body, #map_canvas {
   z-index: 0;
 }
 #logo {
-  position: absolute;
-  height: 50px;
-  width: 150px;
-  top: 10px;
-  left: 10px;
+  position: relative;
+  float: left;
+  top: -10px;
+  left: 14px;
   z-index: 2;
 }
 #search_field {
-  position: absolute;
+  float: left;
+  position: relative;
+  left: 30px;
+  top: 17px;
   height: 22px;
   width: 150px;
-  top: 80px;
-  left: 10px;
   z-index: 2;
 }
 #submit_button {
-  position: absolute;
-  height: 22px;
-  width: 32px;
-  top: 80px;
-  left: 165px;
+  float: left;
+  position: relative;
+  left: 34px;
+  top: 17px;
+  height: 28px;
+  width: 38px;
   z-index: 2;
 }
-#about_pannel {
+div.panel {
+  background: -webkit-linear-gradient( #fafafa, #cacaca);
+  background: -o-linear-gradient(#fafafa, #cacaca);
+  background: -moz-linear-gradient(top bottom, #fafafa, #cacaca);
+  background: linear-gradient(top bottom, #fafafa, #cacaca);
+  //box-shadow: 2px 2px 7px 2px #222222;
+  border: 1px solid;
+  border-color: #121212;
+  border-radius: 2px;
+  z-index: 10;
+}
+
+#ip_panel {
   position: absolute;
   height: 280px;
-  width: 187px;
-  top: 120px;
-  left: 10px;
-  background: #fafafa;
-  box-shadow: 10px 15px 30px 2px #555555;
+  width: 197px;
+  top: 59px;
+  left: -10px;
 }
-p {
-  position: absolute;
+
+div.panel p {
+  position: relative;
   top: 5px;
-  font-size: 12px;
+  font-size: 13px;
   text-align: justify;
-  padding: 10px;
+  padding-left: 20px;
+  padding-right: 10px;
+  padding-top: 0px;
+}
+
+#trace_start {
+  position: relative;
+  float: left;
+  width: 165px;
+  height: 27px;
+  top: 5px;
+  left: 20px;
 }
 
 #collapse_button {
   float: right;
   position: relative;
-  left: 30px;
+  left: 41px;
+  top: -3px;
+}
+
+#top_panel {
+  position: absolute;
   top: -2px;
+  left: -2px;
+  width: 100%;
+  height: 60px;
+  border-left-style: none;
+  border-right-style: none;
+  border-bottom-style: solid;
+  border-radius: 0px;
+  overflow: hidden;
+}
+
+#ip_list {
+  position: relative;
+  top: 0px;
+  left: 20px;
+  height: 200px;
+  width: 162px;
+  overflow: auto;
+  border: 1px solid;
+}
+
+.remove_button {
+  float: right;
+  font-size: 10px;
+}
+
+div.ip {
+  border: 1px dotted;
 }

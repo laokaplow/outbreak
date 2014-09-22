@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Outbreak</title>
+    <title>Birds Eye</title>
     <link rel="stylesheet" type="text/css" href="../static/style.css">
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   </head>
   <body>
+    <div class="panel" id="top_panel">
+      <div id="logo"><h1>Birds Eye</h1></div>
+      <input id="search_field" type="text" placeholder="Enter IP or domain">
+      <input id="submit_button" type="button" value="add">
+    </div>
     <div id="map_canvas"></div>
-    <div id="logo"><h1>Outbreak</h1></div></br>
-    <input id="search_field" type="search" placeholder="Enter IP or domain">
-    <input id="submit_button" type="button" value="go">
-
-    <div id="about_pannel">
+    <div class="panel" id="ip_panel">
       <input id="collapse_button" type="button" value="<<<">
-      <p>Do in laughter securing smallest sensible no mr hastened. As perhaps proceed in in brandon of limited unknown greatly. Distrusts fulfilled happiness unwilling as explained of difficult. No landlord of peculiar ladyship attended if contempt ecstatic. Loud wish made on is am as hard.</br> Court so avoid in plate hence. Of received mr breeding concerns peculiar securing landlord. Spot to many it four bred soon well to. Or am promotion in no departure abilities.</br>
+      <p>
+      	<b>IP List:</b></br>
+        <div id="ip_list">
+        </div>
+        <input id="trace_start" type="button" value="strart traceroute">
+      </p>
     </div>
     <script src="../static/google_map.js"></script>
   </body>
