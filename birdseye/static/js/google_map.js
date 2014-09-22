@@ -97,6 +97,7 @@ var ip_input = document.getElementById("search_field");
 
 var ip_counter = 0;
 
+
 var button_toggled = false;
 $(document).ready(function(){
   $('#collapse_button').click(function(){
