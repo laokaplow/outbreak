@@ -97,30 +97,33 @@ var ip_input = document.getElementById("search_field");
 
 var ip_counter = 0;
 
-var button_toggled = false;
-$(document).ready(function(){
-  $('#collapse_button').click(function(){
-    if (!button_toggled){
-      $('#ip_panel').animate({
-       'left' : '-=188px'
-      });
-      button_toggled = true;
-    }
-    else{
-      $('#ip_panel').animate({
-       'left' : '+=188px'
-      });
-      button_toggled = false;
-    }
-  });
-  $('#submit_button').click(function(){
-    var text = ip_input.value;
-    ip_input.value = "";
-    $('#ip_list').append("<div class=\"ip\">" + text + "<input class=\"remove_button\" type=\"button\" value=\"x\"></div>");
 
-    $('.remove_button').click(function(){
-      $(this).parent().remove();
-      $(this).remove();
+function test() {
+  var button_toggled = false;
+  $(document).ready(function(){
+    $('#collapse_button').click(function(){
+      if (!button_toggled){
+        $('#ip_panel').animate({
+         'left' : '-=188px'
+        });
+        button_toggled = true;
+      }
+      else{
+        $('#ip_panel').animate({
+         'left' : '+=188px'
+        });
+        button_toggled = false;
+      }
+    });
+    $('#submit_button').click(function(){
+      var text = ip_input.value;
+      ip_input.value = "";
+      $('#ip_list').append("<div class=\"ip\">" + text + "<input class=\"remove_button\" type=\"button\" value=\"x\"></div>");
+
+      $('.remove_button').click(function(){
+        $(this).parent().remove();
+        $(this).remove();
+      });
     });
   });
-});
+}
