@@ -10,25 +10,28 @@ Blah Blah Flaks, PCap blah blah, Jquery blah, Google Maps Blah
 Easy Setup With Docker
 -----
 
-Manual Setup
+Manual Setup for Development
 -----
 **This is just a test beep boop**
 
-If you don't have pip installed you'll need to get it now
+We'll start by installing some programs for our dependency management
 ```
 $ sudo apt-get install python-pip 
+$ sudo apt-get install npm
+$ sudo npm install -g bower
 ```
 
 We don't want to pollute your environment so install virtualenv
 ```
 $ sudo pip install virtualenv
-$ virtualenv env
-$ source ./env/bin/activate
+$ virtualenv ./birdseye/lib/python_modules
+$ source ./birdseye/lib/python_modules/bin/activate
 ```
 
 Now we can safely install our deps
 ```
-$ ./env/bin/pip install -r requirements.txt
+$ pip install -r test_requirements.txt
+$ bower install
 ```
 
 Now run the webserver accordingly

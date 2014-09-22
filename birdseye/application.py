@@ -11,6 +11,6 @@ api = restful.Api(app)
 
 @app.route("/")
 def root():
-    return render_template("outbreak.html")
+    return render_template("birdseye.html")
 
 api.add_resource(Traceroute, '/traceroute/<string:dest>')
