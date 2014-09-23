@@ -26,7 +26,7 @@ def get_locations(ip_collection):
         r = requests.get('http://freegeoip.net/json/' + ip)
         # TODO: This errors out if an invalid IP is called. wrap json.loads in a try-"catch"
         json_object = json.loads(r.text)
-        node = IpNode(json_object['ip'], json_object['longitude'], json_object['latitude'], 
+        node = IpNode(json_object['ip'], json_object['longitude'], json_object['latitude'],
             json_object['country_name'], json_object['region_name'], json_object['city'])
         node_list.append(node)
     return node_list
