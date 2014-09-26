@@ -7,12 +7,10 @@ import unittest
 import tempfile 
 from birdseye import application
 
-#class FlaskTests(unittest.TestCase):
-#    def test_get_root(self):
-#        """ TODO """
-#        pdb.set_trace()
-#        print app
-#        print api
+class FlaskTests(unittest.TestCase):
+    def test_get_root(self):
+        """ TODO """
+        print "True"
 
 
 

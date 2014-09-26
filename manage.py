@@ -5,7 +5,6 @@ desc: A set of commands to make our lives easier.
     COMMANDS:
         python ./manage.py runserver
         python ./manage.py cleanpyc
-        python ./manage.py env
 """
 
 
@@ -19,20 +18,16 @@ manager = Manager(app)
 
 @manager.command
 def runserver():
+    """ Runs the flask server """
     app.run(host="0.0.0.0", debug=True, threaded=True)
 
 
 @manager.command
 def cleanpyc():
+    """ Removes all those yucky .pyc files """
     print "Recursivley cleaning up .pyc files..."
     os.system("find . -name '*.pyc' -exec rm -rf {} \;")
     print "Done."
-
-
-@manager.command
-def env():
-    print "Starting virtualenv..."
-    os.system(". ./birdseye/lib/python_modules/bin/activate")
 
 
 if __name__ == "__main__":
