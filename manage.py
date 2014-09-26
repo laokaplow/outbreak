@@ -8,7 +8,7 @@ desc: A set of commands to make our lives easier.
 """
 
 
-from flask.ext.script import Command, Manager, Option
+from flask.ext.script import Manager
 from birdseye.application import app
 import os
 
