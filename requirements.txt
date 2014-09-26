@@ -1,3 +1,4 @@
 Flask==0.10.1
 flask-restful
 requests
+Flask-Script
