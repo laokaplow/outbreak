@@ -24,12 +24,12 @@ def geoip_lookup(ip_collection):
         # TODO: This errors out if an invalid IP is called. wrap json.loads in a try-"catch"
         json_object = json.loads(r.text)
         node = Endpoint(
-                json_object['ip'],
-                json_object['longitude'],
-                json_object['latitude'],
-                json_object['country_name'], 
-                json_object['region_name'],
-                json_object['city']
-            )
-        node_list.append(node.__dict__)
+            json_object['ip'],
+            json_object['longitude'],
+            json_object['latitude'],
+            json_object['country_name'],
+            json_object['region_name'],
+            json_object['city']
+        )
+    node_list.append(node.__dict__)
     return node_list
