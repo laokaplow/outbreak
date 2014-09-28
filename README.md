@@ -36,7 +36,7 @@ $ bower install
 
 Now run the webserver accordingly
 ```
-$ ./run.py
+$ python ./manage.py runserver
 ```
 
 Meet the Team
