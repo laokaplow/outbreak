@@ -31,5 +31,6 @@ def geoip_lookup(ip_collection):
             json_object['region_name'],
             json_object['city']
         )
-    node_list.append(node.__dict__)
+        node_list.append(node.__dict__)
+
     return node_list
