@@ -2,7 +2,7 @@
 import subprocess
 
 
-out = subprocess.Popen(["sudo", "./pcap"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+out = subprocess.Popen(["sudo", "./pcap", "tcp or ip", "50"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 for line in iter(out.stdout.readline, ''):
     print line.rstrip()
