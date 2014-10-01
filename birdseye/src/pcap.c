@@ -129,7 +129,7 @@ int main(int argc, char* argv[])
      placeholder if any specific devices want to be sniffed on...
   */
   for(d = all_devices; d; d = d->next) {
-   if(strcmp(d->name, "any") == 0) {
+   if(strcmp(d->name, "eth1") == 0) {
      device = d->name;
    }  
   }
