@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import subprocess, sys, getopt
+import subprocess,sys,getopt
 pcapProcess = subprocess.Popen (["sudo", "./pcap", "", "5000"], stdout = subprocess.PIPE, stderr = subprocess.PIPE) 
 
 while True:
