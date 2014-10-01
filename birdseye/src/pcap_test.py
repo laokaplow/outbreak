@@ -1,11 +1,12 @@
 #!/usr/bin/python
 import subprocess
+import sys
 
+pcapProcess=subprocess.Popen(["sudo", "./pcap", "", "5000"], stdout=subprocess.PIPE, stderr=subprocess.PIPE) 
 
-out = subprocess.Popen(["sudo", "./pcap"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-
-for line in iter(out.stdout.readline, ''):
-    print line.rstrip()
-
-for line in iter(out.stderr.readline, ''):
-    print line.rstrip()
+while True:
+       nextLine = pcapProcess.stdout.readline()
+       if nextLine == '' and pcapProcess.poll() != None:
+           break
+       sys.stdout.write(nextLine)
+       sys.stdout.flush()
