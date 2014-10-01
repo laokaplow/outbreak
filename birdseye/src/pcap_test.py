@@ -2,7 +2,7 @@
 import subprocess
 import sys
 
-pcapProcess = subprocess.Popen(["sudo", "./pcap", "", "5000"], stdout = subprocess.PIPE, stderr = subprocess.PIPE) 
+pcapProcess=subprocess.Popen(["sudo", "./pcap", "", "5000"], stdout=subprocess.PIPE, stderr=subprocess.PIPE) 
 
 while True:
        nextLine = pcapProcess.stdout.readline()
