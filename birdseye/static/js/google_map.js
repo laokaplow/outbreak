@@ -14,15 +14,15 @@ function initialize() {
   {
     "featureType": "water",
     "stylers": [
-      { "hue": "#b2d4ff" },
-      { "saturation": 30 },
-      { "lightness": 10 }
+      { "hue": "#a7c5bd" },
+      { "lightness": -50},
+      { "saturation": -60}
     ]
   },{
     "featureType": "landscape.natural.landcover",
     "stylers": [
-      { "hue": "#d4ffb2" },
-      { "saturation": 30 },
+      { "hue": "#eb7b59" },
+      { "saturation": 0 },
       { "lightness": 0 }
     ]
   },{
@@ -53,10 +53,10 @@ function initialize() {
   },{
     "featureType": "landscape.natural",
     "stylers": [
-      { "hue": "#eaddcc"},
+      { "hue": "#eb7b59"},
       { "visibility": "simplified" },
-      { "saturation": 50 },
-      { "lightness": -3 }
+      { "saturation": 70 },
+      { "lightness": 10 }
     ]
   },{
     "featureType": "road",
@@ -68,7 +68,7 @@ function initialize() {
   ];
 
   var mapOptions = {
-    zoom: 12,
+    zoom: 6,
     center: chico,
     mapTypeControlOptions: {
     mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
@@ -89,6 +89,7 @@ function initialize() {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
+
 // Button controls for hiding and expending the "about" panel.
 var hide_about = document.getElementById("collapse_button");
 var submit_button = document.getElementById("submit_button");
@@ -103,25 +104,35 @@ $(document).ready(function(){
   $('#collapse_button').click(function(){
     if (!button_toggled){
       $('#ip_panel').animate({
-       'left' : '-=188px'
+       'left' : '-=191px'
       });
-      button_toggled = true;
+      button_tggled = true;
     }
     else{
       $('#ip_panel').animate({
-       'left' : '+=188px'
+       'left' : '+=191px'
       });
       button_toggled = false;
     }
   });
-  $('#submit_button').click(function(){
-    var text = ip_input.value;
-    ip_input.value = "";
-    $('#ip_list').append("<div class=\"ip\">" + text + "<input class=\"remove_button\" type=\"button\" value=\"x\"></div>");
 
-    $('.remove_button').click(function(){
-      $(this).parent().remove();
-      $(this).remove();
+  $('#submit_button').click(function(){
+    console.log("starting traceroute...");
+    var text = ip_input.value;
+    $.ajax("traceroute/" + text)
+      .done(function(data) {
+      console.log("traceroute finished!");
+      console.log(data);
+    })
+      .fail(function(data) {
+      console.log("traceroute failed.");
     });
+
+    //$('#ip_list').append("<div class=\"ip\">" + text + "<input class=\"remove_button\" type=\"button\" value=\"x\"></div>");
+
+    //$('.remove_button').click(function(){
+    //  $(this).parent().remove();
+    //  $(this).remove();
+    //});
   });
 });
