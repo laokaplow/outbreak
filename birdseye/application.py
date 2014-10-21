@@ -36,6 +36,7 @@ def static_lib(filename):
     """ Static file path for external libraries """
     return send_from_directory(app.root_path + '/lib/bower_components/', filename)
 
+
 @app.route('/static/images/<path:filename>')
 def static_img(filename):
     """ Static file path for images """
