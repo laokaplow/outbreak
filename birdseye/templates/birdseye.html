@@ -2,31 +2,36 @@
 <html>
   <head>
     <title>Birdseye</title>
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="{{ css_path }}/style.css">
+
+    <!-- Scripts -->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script src="{{ lib_path }}/jquery/dist/jquery.min.js"></script>
     <script src="{{ lib_path }}/underscore/underscore.js"></script>
+    <script src="{{ lib_path }}/backbone/backbone.js"></script>
+
+    <!-- Fonts -->
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" href="../static/birdseye_logo_m_black.ico">
   </head>
   <body>
     <div class="panel" id="top_panel">
         <img id="logo_img" src="../static/birdseye_logo_m_white.png" height="40" width="22">
       <div id="logo">Birdseye</div>
-      <input id="search_field" type="text" placeholder="Enter IP or domain">
-      <input class="button" id="submit_button" type="button" value="add">
       <input class="button" id="monitoring_button" type="button" value="start monitoring">
     </div>
+    
     <div id="map_canvas"></div>
-    <!--<div class="panel" id="ip_panel">
-      <input class="button" id="collapse_button" type="button" value="<<<">
-      <p>
-      	<b>IP List:</b></br>
-        <div id="ip_list">
-        </div>
-        <input class="button" id="trace_start" type="button" value="start traceroute">
-      </p>
-    </div>-->
+
+    <div id="map_overlay">
+      <div id="manual_routes">
+        <header>Manual Routes</header>
+      </div>
+      <input id="search_field" type="text" placeholder="Enter IP or domain">
+      <input class="button" id="submit_button" type="button" value="add">
+    </div>
     <script src="{{ js_path }}/google_map.js"></script>
+    <script src="{{ js_path }}/main.js"></script>
   </body>
 </html>
