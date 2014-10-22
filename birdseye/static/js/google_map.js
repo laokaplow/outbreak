@@ -103,6 +103,54 @@ var city_array = [];
 // Array that will hold all of the complete path currently displayed
 var routes_array = [];
 
+// function to create a route
+var create_route = function(data, text) {
+  console.log("traceroute finished!");
+  // Variable used to check for any duplicate city.
+  var last_city = "";
+
+  for(var i = 0; i < data.destinations.length; i++) {
+    // Add the city in the array if it is defined and if it is not a duplicate.
+    if(data.destinations[i].city != "" && data.destinations[i].city != last_city) {
+      city_array.push(new City(data.destinations[i].city,
+        data.destinations[i].lat,
+        data.destinations[i].lon,
+        data.destinations[i].ip,
+        data.destinations[i].country));
+
+      last_city = data.destinations[i].city;
+    }
+  }
+
+  // create a random color hex value for the path.
+  var random_color = randomColor();
+
+  // push the new route in the array
+  routes_array.push(new Route(map, city_array, random_color, text));
+
+  // clear the city array for the next call
+  city_array = [];
+
+}
+
+var insert_element_in_list = function(text) {
+  $('#ip_list').append("<div class=\"ip\" id=\"" + text + "\">" + text + "<input class=\"remove_button\" type=\"button\" value=\"x\"></div>");
+
+  // remove the element in the ip list and remove the markers and path associated with it.
+  $('.remove_button').click(function(){
+    console.log("click");
+    for(var i = 0; i < routes_array.length; i++) {
+      console.log($(this).parent().text() + "?" + routes_array[i].getDestination());
+      if($(this).parent().text() == routes_array[i].getDestination()) {
+        routes_array[i].hide();
+        routes_array.splice(i,1);
+        $(this).parent().remove();
+        $(this).remove();
+      }
+    }
+  });
+}
+
 // toggle vriable for the sliding button, not used right now.
 //var button_toggled = false;
 $(document).ready(function(){
@@ -136,53 +184,51 @@ $(document).ready(function(){
     $.ajax("traceroute/" + text)
 
       .done(function(data) { 
-        console.log("traceroute finished!");
-        // Variable used to check for any duplicate city.
-        var last_city = "";
-
-        for(var i = 0; i < data.destinations.length; i++) {
-          // Add the city in the array if it is defined and if it is not a duplicate.
-          if(data.destinations[i].city != "" && data.destinations[i].city != last_city) {
-            city_array.push(new City(data.destinations[i].city,
-              data.destinations[i].lat,
-              data.destinations[i].lon,
-              data.destinations[i].ip,
-              data.destinations[i].country));
-
-            last_city = data.destinations[i].city;
-          }
-        }
-
-        console.log("*****starting printing*****");
-        
-        // create a random color hex value for the path.
-        var random_color = randomColor();
-        
-        // push the new route in the array
-        routes_array.push(new Route(map, city_array, random_color, text));
-
-        // clear the city array for the next call
-        city_array = [];
-
+        create_route(data, text);
     })
+
       .fail(function(data) {
         console.log("traceroute failed.");
     });
 
     // create the entry in the ip list.
-    $('#ip_list').append("<div class=\"ip\" id=\"" + text + "\">" + text + "<input class=\"remove_button\" type=\"button\" value=\"x\"></div>");
+    insert_element_in_list(text);
+    
+  });
 
-    // remove the element in the ip list and remove the markers and path associated with it.
-    $('.remove_button').click(function(){
-      for(var i = 0; i < routes_array.length; i++) {
-        if($(this).parent().text() == routes_array[i].getDestination()) {
-          routes_array[i].hide();
-          routes_array.splice(i,1);
-          $(this).parent().remove();
-          $(this).remove();
-        }
-      }
-    });
+  $('#sample_button').click(function() {
+
+    console.log("starting sample traceroutes...");
+    // Grab the input
+    var sample_routes = [
+      "yahoo.jp",
+      "rtbf.be",
+      "nist.gov",
+      "whitehouse.gov",
+      "amazon.com",
+      "google.com",
+      "china.org.cn",
+      "bbc.com",
+      "reddit.com"
+    ];
+
+    for(var i = 0; i < sample_routes.length; i++) {
+      var text = sample_routes[i];
+      $.ajax("traceroute/" + text)
+
+        .done(function(data) {
+          console.log("traceroute successful!");
+          create_route(data, text);
+      })
+
+        .fail(function(data) {
+          console.log("traceroute failed.");
+      });
+
+      // create the entry in the ip list.
+      insert_element_in_list(text);
+    }
+    
   });
 });
 
