@@ -3,7 +3,8 @@ file: geoip_lookup.py
 desc: TODO
 """
 
-import requests, json
+import requests
+import json
 
 
 class Endpoint:
@@ -20,6 +21,7 @@ def geoip_lookup(ip_collection):
     node_list = []
     for ip in ip_collection:
         r = requests.get('http://freegeoip.net/json/' + ip)
+        node = None
         try:
             json_object = json.loads(r.text)
             node = Endpoint(
@@ -31,7 +33,13 @@ def geoip_lookup(ip_collection):
                 json_object['city']
             )
         except ValueError:
-            node = Endpoint(ip, "void", "void", "void", "void", "void")
-        node_list.append(node)
-
+            node = Endpoint(
+                ip,
+                "void",
+                "void",
+                "void",
+                "void",
+                "void"
+            )
+        node_list.append(node.__dict__)
     return node_list
