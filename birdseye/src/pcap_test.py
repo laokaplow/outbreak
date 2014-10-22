@@ -2,8 +2,8 @@
 import subprocess
 import sys
 
-def pcap_funct(packets):
-    pcapProcess = subprocess.Popen(["sudo", "./pcap", "", packets], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+def pcap_funct(packets, filter):
+    pcapProcess = subprocess.Popen(["sudo", "./pcap", filter, packets], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     while True:
         nextLine = pcapProcess.stdout.readline()
@@ -11,5 +11,6 @@ def pcap_funct(packets):
             break
         sys.stdout.write(nextLine)
         sys.stdout.flush()
-    return pcapProcess
+    print pcapProcess.returncode
+    return pcapProcess.returncode
 #pcap_funct("10")
