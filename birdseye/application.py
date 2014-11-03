@@ -47,8 +47,8 @@ class Traceroute(restful.Resource):
     def get(self, dest):
         """ TODO """
         ip_list = core.traceroute.run_traceroute(dest)
-        geoip_response = core.geoip.geoip_lookup(ip_list)
-        return { 'destinations': geoip_response }
+        #geoip_response = core.geoip.geoip_lookup(ip_list)
+        return { 'destinations': ip_list }
 
 
 api.add_resource(Traceroute, '/traceroute/<string:dest>')
