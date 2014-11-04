@@ -6,11 +6,6 @@ desc: TODO
 from subprocess import check_output, PIPE
 from netaddr import IPAddress
 
-class Address:
-    def __init__(self, ip, loss, ping):
-        self.ip = ip
-        self.loss = loss
-        self.ping = ping
 
 def run_traceroute(dest):
     report = check_output(
@@ -30,12 +25,12 @@ def run_traceroute(dest):
             continue
         elif IPAddress(endpoint[1]).is_private():
             continue
-        addr = Address(
-            endpoint[1],
-            endpoint[2],
-            endpoint[3],
-        )
-        ip_list.append(addr.__dict__)
+        addr = {
+            "ip": endpoint[1],
+            "loss": endpoint[2],
+            "ping": endpoint[3]
+        }
+        ip_list.append(addr)
 
     return ip_list 
 
