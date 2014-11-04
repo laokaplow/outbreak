@@ -3,7 +3,7 @@ file: test_geoip_lookup.py
 desc: TODO
 """
 
-import unittest, mock, requests, json
+import unittest, mock, json
 from birdseye.src import core
 
 
@@ -30,16 +30,13 @@ class TestGeoIP(unittest.TestCase):
             "city": ""
         })
 
-
     def test_none_ip_list(self):
         ret = core.geoip.geoip_lookup(None)
         self.assertTrue(ret == [])
 
-
     def test_empty_ip_list(self):
         ret = core.geoip.geoip_lookup([])
         self.assertTrue(ret == [])
-
 
     @mock.patch("requests.get")
     def test_invalid_ip_list(self, patched_get):
@@ -51,7 +48,6 @@ class TestGeoIP(unittest.TestCase):
         self.assertTrue(patched_get.call_count == 2)
         self.assertTrue(ret == [])
 
-
     @mock.patch("requests.get")
     def test_somevalid_ip_list(self, patched_get):
         bad_r = mock.Mock(status_code=404)
@@ -62,7 +58,6 @@ class TestGeoIP(unittest.TestCase):
 
         self.assertTrue(patched_get.call_count == 2)
         self.assertTrue(len(ret) == 1)
-
 
     @mock.patch("requests.get")
     def test_valid_ip_list(self, patched_get):

@@ -19,12 +19,14 @@ def run_traceroute(dest):
     report = report.split('\n')[2:-1]
     for endpoint in report:
         endpoint = endpoint.split()
+
         if endpoint[2] == "100%":
             continue
         elif endpoint[1] == "???" or not endpoint:
             continue
         elif IPAddress(endpoint[1]).is_private():
             continue
+
         addr = {
             "ip": endpoint[1],
             "loss": endpoint[2],
@@ -32,9 +34,8 @@ def run_traceroute(dest):
         }
         ip_list.append(addr)
 
-    return ip_list 
+    return ip_list
 
 if __name__ == "__main__":
     import sys
     print run_traceroute(sys.argv[1])
-
