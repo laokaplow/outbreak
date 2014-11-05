@@ -7,39 +7,22 @@ import requests
 import json
 
 
-class Endpoint:
-    def __init__(self, ip, lon, lat, country, region, city):
-        self.ip = str(ip)
-        self.lon = str(lon)
-        self.lat = str(lat)
-        self.country = str(country)
-        self.region = str(region)
-        self.city = str(city)
+def geoip_lookup(ip_list):
+    geoip_list = []
 
+    if ip_list is None or not ip_list:
+        return geoip_list
 
-def geoip_lookup(ip_collection):
-    node_list = []
-    for ip in ip_collection:
-        r = requests.get('http://freegeoip.net/json/' + ip)
-        node = None
-        try:
-            json_object = json.loads(r.text)
-            node = Endpoint(
-                json_object['ip'],
-                json_object['longitude'],
-                json_object['latitude'],
-                json_object['country_name'],
-                json_object['region_name'],
-                json_object['city']
-            )
-        except ValueError:
-            node = Endpoint(
-                ip,
-                "void",
-                "void",
-                "void",
-                "void",
-                "void"
-            )
-        node_list.append(node.__dict__)
-    return node_list
+    for ip in ip_list:
+        r = requests.get("http://freegeoip.net/json/" + ip["ip"])
+        if r.status_code == 404:
+            continue
+        json_object = json.loads(r.text)
+        geoip = dict(ip)
+        geoip["lon"] = json_object["longitude"]
+        geoip["lat"] = json_object["latitude"]
+        geoip["country"] = json_object["country_name"]
+        geoip["region"] = json_object["region_name"]
+        geoip["city"] = json_object["city"]
+        geoip_list.append(geoip)
+    return geoip_list
