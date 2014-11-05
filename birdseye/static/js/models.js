@@ -11,7 +11,6 @@ var Endpoint = Backbone.Model.extend({
   }
 });
 
-
 var Traceroute = Backbone.Collection.extend({
   model: Endpoint,
   initialize: function (models, options) {
