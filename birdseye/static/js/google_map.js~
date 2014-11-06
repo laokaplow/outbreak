@@ -140,7 +140,7 @@ $(document).ready(function(){
 
  $('#monitoring_button').click(function() {
    console.log("starting sample packet capture....");
-   var call = $.ajax("pcap_test/" + "100/" + "tcp");
+   var call = $.ajax("pcap_test/" + "10/" + "tcp");
    console.log(call);
  });
 

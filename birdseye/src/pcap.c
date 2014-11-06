@@ -70,7 +70,7 @@ int main(int argc, char* argv[])
   int network;
   int PACKET_COUNT = 500; 
 
-  printf("doinng something...\n");
+ // printf("doinng something...\n");
 
   /* 
      Having a mandatory filter argument just makes life easier. Also,
@@ -299,6 +299,6 @@ void packet_handler(u_char* dump_file, const struct pcap_pkthdr *header, const u
   ip = (struct get_ip*)(pkt_data + 14); /* Get the destination IP address */
  
   /* Print the destination IP to stdout */
-  printf("%d.%d.%d.%d\n", ip->daddr.byte_1, ip->daddr.byte_2, ip->daddr.byte_3, ip->daddr.byte_4);
+  printf("%d.%d.%d.%d,", ip->daddr.byte_1, ip->daddr.byte_2, ip->daddr.byte_3, ip->daddr.byte_4);
    
 }
