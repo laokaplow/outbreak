@@ -138,6 +138,13 @@ $(document).ready(function(){
     add_route(ip_input.value);
   });
 
+ $('#monitoring_button').click(function() {
+   console.log("starting sample packet capture....");
+   var call = $.ajax("pcap_test/" + "100/" + "tcp");
+   console.log(call);
+ });
+
+
   $('#sample_button').click(function() {
 
     console.log("starting sample traceroutes...");
@@ -178,7 +185,7 @@ City.prototype.print = function() {
   console.log("IP: " + this._ip);
   console.log("Country: " + this._country);
   console.log(" ");
- }
+}
 
 City.prototype.getName = function() {
   return this._name;

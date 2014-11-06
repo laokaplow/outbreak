@@ -11,6 +11,13 @@ var Endpoint = Backbone.Model.extend({
   }
 });
 
+var Pcap = Backbone.Model.extend({
+  defaults: {
+   packets: 0,
+   filter: ""
+  }
+});
+
 var Traceroute = Backbone.Collection.extend({
   model: Endpoint,
   initialize: function (models, options) {

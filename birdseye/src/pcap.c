@@ -103,7 +103,10 @@ int main(int argc, char* argv[])
   if(argc >= 3) {
     PACKET_COUNT = atoi(argv[2]); /* Convert to int */
   }
-
+  
+  if(PACKET_COUNT <= 0) {
+   exit(0);
+  }
   /* 
      Finding devices to sniff on. Populates that list on return. 
      
@@ -202,7 +205,7 @@ int main(int argc, char* argv[])
                           capturing packets on. Apparently it is only checked
                           when checking for IPv4 broadcast addresses in the 
                           filter program.  
-*/
+  */
   if(pcap_compile(handle, &filter_program, filter_expression, OPTIMIZE, mask) < 0) {
    fprintf(stderr, "Error in pcap_compile().\n Error:\n");
    pcap_perror(handle, errbuf);			/* Get the error message. */
@@ -297,6 +300,6 @@ void packet_handler(u_char* dump_file, const struct pcap_pkthdr *header, const u
   ip = (struct get_ip*)(pkt_data + 14); /* Get the destination IP address */
  
   /* Print the destination IP to stdout */
-  printf("%d.%d.%d.%d\n", ip->daddr.byte_1, ip->daddr.byte_2, ip->daddr.byte_3, ip->daddr.byte_4);
+  printf("%d.%d.%d.%d,", ip->daddr.byte_1, ip->daddr.byte_2, ip->daddr.byte_3, ip->daddr.byte_4);
    
 }
