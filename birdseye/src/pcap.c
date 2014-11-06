@@ -70,8 +70,6 @@ int main(int argc, char* argv[])
   int network;
   int PACKET_COUNT = 500; 
 
- // printf("doinng something...\n");
-
   /* 
      Having a mandatory filter argument just makes life easier. Also,
      an uninitialized filter_expression argument is bad, and causes
@@ -105,7 +103,10 @@ int main(int argc, char* argv[])
   if(argc >= 3) {
     PACKET_COUNT = atoi(argv[2]); /* Convert to int */
   }
-
+  
+  if(PACKET_COUNT <= 0) {
+   exit(0);
+  }
   /* 
      Finding devices to sniff on. Populates that list on return. 
      
@@ -204,7 +205,7 @@ int main(int argc, char* argv[])
                           capturing packets on. Apparently it is only checked
                           when checking for IPv4 broadcast addresses in the 
                           filter program.  
-*/
+  */
   if(pcap_compile(handle, &filter_program, filter_expression, OPTIMIZE, mask) < 0) {
    fprintf(stderr, "Error in pcap_compile().\n Error:\n");
    pcap_perror(handle, errbuf);			/* Get the error message. */

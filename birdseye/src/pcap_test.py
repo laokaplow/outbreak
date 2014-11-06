@@ -3,10 +3,10 @@ import subprocess
 import sys
 
 
-def pcap_funct(packets, filter):
+def pcap_funct(filter, packets):
 
     pcapProcess = subprocess.Popen(["sudo", "./birdseye/src/pcap", filter, packets],
-    stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+                  stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     listOfIps = []
     i = 0
     while True:
@@ -18,4 +18,5 @@ def pcap_funct(packets, filter):
         sys.stdout.flush()
         i += 1
     print pcapProcess.returncode
-    return listOfIps
+    return pcapProcess.returncode
+    #return listOfIps

@@ -57,13 +57,5 @@ class TestPCap(unittest.TestCase):
         return_value = core.pcap_test.pcap_funct("(tcp or ip) and not port 53", "10")
         self.assertTrue((return_value == 0))
 
-    def test_pcap_port_range_filter(self):
-        return_value = core.pcap_test.pcap_funct("tcp portrange 1501-1549", "10")
-        self.assertTrue((return_value == 0))
-
-    def test_pcap_test_complex_filter(self):
-        return_value = core.pcap_test.pcap_funct("(tcp[0:2] > 1500 and tcp[0:2] < 1550) or (tcp[2:2] > 1500)", "10")
-        self.assertTrue((return_value == 0))
-
 if __name__ == '__main__':
     unittest.main()
