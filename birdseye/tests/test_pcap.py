@@ -6,10 +6,10 @@ import unittest
 
 from birdseye.src import core
 
+
 class TestPCap(unittest.TestCase):
 
-
-    def test_pcap_0_packets(self):        
+    def test_pcap_0_packets(self):
         return_value = core.pcap_test.pcap_funct("0", "")
         self.assertTrue((return_value == 0))
 

@@ -53,9 +53,11 @@ class Traceroute(restful.Resource):
 
 api.add_resource(Traceroute, '/traceroute/<string:dest>')
 
+
 class Pcap(restful.Resource):
-    def get(self, pack, pFilter):        
+    def get(self, pack, pFilter):
         capture_list = core.pcap_test.pcap_funct(pack, pFilter)
         return { 'capture_list': capture_list }
+
 
 api.add_resource(Pcap, '/pcap_test/<string:pack>/<string:pFilter>')
