@@ -8,12 +8,13 @@ from birdseye.src import core
 
 class TestPCap(unittest.TestCase):
 
+
     def test_pcap_0_packets(self):        
         return_value = core.pcap_test.pcap_funct("0", "")
         self.assertTrue((return_value == 0))
 
     def test_pcap_500_packets(self):
-        return_value = core.pcap_test.pcap_funct("500", "");
+        return_value = core.pcap_test.pcap_funct("500", "")
         self.assertTrue((return_value == 0))
 
     def test_pcap_no_filter(self):
@@ -38,14 +39,10 @@ class TestPCap(unittest.TestCase):
 
     def test_pcap_bad_mixed_filter(self):
         return_value = core.pcap_test.pcap_funct("(%123647hd#@ z 9fwo u23840%)", "10")
-        self.assertTrue((return_value == 1)) 
+        self.assertTrue((return_value == 1))
 
     def test_pcap_simple_filter(self):
         return_value = core.pcap_test.pcap_funct("tcp", "10")
-        self.assertTrue((return_value == 0))
-   
-    def test_pcap_test_tcp_ip_filter(self):
-        return_value = core.pcap_test.pcap_funct("tcp or ip", "10")
         self.assertTrue((return_value == 0))
 
     def test_pcap_test_tcp_ip_filter(self):
@@ -65,10 +62,8 @@ class TestPCap(unittest.TestCase):
         self.assertTrue((return_value == 0))
 
     def test_pcap_test_complex_filter(self):
-        return_value = core.pcap_test.pcap_funct("(tcp[0:2] > 1500 and tcp[0:2] < 1550) or (tcp[2:2] > 1500 and tcp[2:2] < 1550)", "10")
+        return_value = core.pcap_test.pcap_funct("(tcp[0:2] > 1500 and tcp[0:2] < 1550) or (tcp[2:2] > 1500)", "10")
         self.assertTrue((return_value == 0))
-
-
 
 if __name__ == '__main__':
     unittest.main()
