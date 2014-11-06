@@ -172,10 +172,20 @@ $(document).ready(function(){
     }
   });*/
 
+
+$('#monitoring_button').click(function() {
+
+console.log("clicked monitor button...");
+
+ 
+
+});
+
+
   // When the user clicks the 'add' button
   $('#submit_button').click(function() {
 
-    console.log("starting traceroute...");
+    console.log("Now...starting traceroute...");
     // Grab the input
     var text = ip_input.value;
     ip_input.innerHTML = "";
@@ -188,7 +198,7 @@ $(document).ready(function(){
     })
 
       .fail(function(data) {
-        console.log("traceroute failed.");
+        console.log("traceroute failed suckas.");
     });
 
     // create the entry in the ip list.

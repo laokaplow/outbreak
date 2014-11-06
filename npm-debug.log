@@ -1,5 +1,5 @@
 info it worked if it ends with ok
-verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', '-g', 'install', 'bower' ]
+verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'install', '-g', 'bower' ]
 info using npm@1.1.4
 info using node@v0.6.19
 verbose config file /home/austen/.npmrc
@@ -41,7 +41,7 @@ ERR! or use
 ERR!     reportbug --attach /home/austen/430/austens_fork/outbreak/npm-debug.log npm
 ERR! 
 ERR! System Linux 3.5.0-51-generic
-ERR! command "/usr/bin/nodejs" "/usr/bin/npm" "-g" "install" "bower"
+ERR! command "/usr/bin/nodejs" "/usr/bin/npm" "install" "-g" "bower"
 ERR! cwd /home/austen/430/austens_fork/outbreak
 ERR! node -v v0.6.19
 ERR! npm -v 1.1.4

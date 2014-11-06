@@ -70,6 +70,8 @@ int main(int argc, char* argv[])
   int network;
   int PACKET_COUNT = 500; 
 
+  printf("doinng something...\n");
+
   /* 
      Having a mandatory filter argument just makes life easier. Also,
      an uninitialized filter_expression argument is bad, and causes
