@@ -19,4 +19,4 @@ def pcap_funct(filter, packets):
         i += 1
     print pcapProcess.returncode
     return pcapProcess.returncode
-    #return listOfIps
+    # return listOfIps
