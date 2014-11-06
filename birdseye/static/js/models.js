@@ -20,7 +20,6 @@ var Traceroute = Backbone.Collection.extend({
     return "/traceroute/" + this.id;
   },
   parse: function (resp) {
-    console.log("Woo!");
-    console.log(resp);
+    return resp.destinations;
   }
 });
