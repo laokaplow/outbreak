@@ -39,41 +39,6 @@ html, body, #map_canvas {
   left: 60px;
 }
 
-#search_field {
-  color: #ffffff;
-  border-radius: 3px;
-  border: 1px solid;
-  border-color: #322636;
-  background-color: #120616;
-  text-align: center;
-  font-size: 8pt;
-  float: left;
-  position: relative;
-  top: 29px;
-  height: 22px;
-  width: 155px;
-  z-index: 2;
-}
-
-input.button {
-  border: 1px solid;
-  border-radius: 3px;
-  border-color: #322636;
-  background-color: #625666;
-}
-
-input.button:hover {
-  background-color: #827686;
-}
-
-#submit_button {
-  float: left;
-  position: relative;
-  top: 29px;
-  height: 26px;
-  width: 38px;
-  z-index: 2;
-}
 
 #monitoring_button {
   float: right;
@@ -150,21 +115,6 @@ div.panel p {
   overflow: hidden;
 }
 
-#manual_routes {
-  position: relative;
-  top: 32px;
-  left: 0px;
-  width: 195px;
-  height: 30px;
-  border: 1px solid;
-  border-bottom-style: none;
-  border-radius: 2px;
-  text-align: center;
-  font-family: 'Titillium Web', sans-serif;
-  background-color: #524656;
-  color: #ffffff;
-  border-color: #000000;
-}
 
 #ip_list {
 

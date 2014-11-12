@@ -7,42 +7,85 @@ var AppView = Backbone.View.extend({
   el: $('body'),
 
   events: {
+    "click #search_field": "emptyAddRouteField",
     "click #submit_button": "startTraceroute"
   },
 
   initialize: function () {
     this.traceroutes = [];
-    this.routeslistview = new RoutesListView;
     this.googlemapView = new GoogleMapView;
 
     _.bindAll(this, "startTraceroute");
-    _.bindAll(this, "drawTraceroute");
+    _.bindAll(this, "removeTraceroute");
+    _.bindAll(this, "handleRouteClick");
+  },
+
+  emptyAddRouteField: function () {
+    $("#search_field").val("");
   },
 
   startTraceroute: function () {
     var self = this;
+
+    var id = $("#search_field").val();
+
+    // Need to add, if ID exists in this.tracerouts RETURN
+
     var r = new Traceroute({
-      id: $("#search_field").val(),
+      id: id,
       color: randomColor()
+    });
+
+    r.el.on("click", ".remove-route", function () {
+      self.removeTraceroute(r);
+    });
+
+    r.el.on("click", ".hide-route", function () {
+      if (!r.hidden)
+        r.hideRoute(self.googlemapView.map);
+      else
+        r.unhideRoute(self.googlemapView.map);
     });
 
     r.fetch({
       success: function () {
         r.drawRoute(self.googlemapView.map);
+        r.el.on("click", r.el, function (e) {
+          self.handleRouteClick(r, e);
+        });
       },
-      fail: function () {
-        console.log("Traceroute failed");
+      error: function () {
+        r.drawFailedRoute();
       }
     });
     this.traceroutes.push(r);
-  }
-});
+  },
 
+  removeTraceroute: function (r) {
+    r.removeRoute();
 
-var RoutesListView = Backbone.View.extend({
-  el: $('#manual_routes'),
-  initialize: function () {
+    var index = this.traceroutes.indexOf(r);
+    if (index > -1)
+      this.traceroutes.splice(index, index+1)
+  },
+
+  handleRouteClick: function (r, e) {
+    if ($(e.target).hasClass("remove-route"))
+      return;
+
+    if ($(e.target).hasClass("hide-route"))
+      return;
+
+    if (!r.focused) {
+      r.focusRoute(this.googlemapView.map);
+      r.el.find("a").first().addClass("focus");
+    }
+    else if (r.focused) {
+      r.unfocusRoute(this.googlemapView.map);
+      r.el.find("a").first().removeClass("focus");
+    }
   }
+
 });
 
 

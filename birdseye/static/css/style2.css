@@ -1,0 +1,87 @@
+
+
+/**
+ * BASE STYLES
+ */
+
+html, body, #map_canvas {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  z-index: 0;
+  overflow:hidden;
+}
+
+#logo, header {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 18pt;
+  letter-spacing: 2px;
+  position: relative;
+  float: left;
+  top: 0px;
+  width: 190px;
+  height: 20px;
+  z-index: 2;
+}
+
+
+#manual_routes {
+  text-align: center;
+  background-color: #524656;
+  color: #ffffff;
+  border-color:#444444;
+  border-bottom-right-radius:0;
+  border-bottom-left-radius:0;
+}
+
+.navbar-custom {
+}
+
+#ip_container {
+  max-height:130px;
+  overflow-y:scroll;
+}
+
+#add-ip-container {
+  margin-top:10px;
+  padding-left:0;
+}
+
+.loading {
+  float:right;
+  width:20px;
+  top:1px;
+}
+
+.icon {
+  float:right;
+  padding:2px;
+  padding-left:10px;
+}
+
+.remove-route:hover {
+  color:red;
+}
+
+.hide-route:hover {
+  color:#a7c5bd;
+}
+
+.list-group-item.focus {
+  background-color:#f5f5f5;
+}
+
+
+/**
+ * OVERRIDING BOOTSTRAP
+ */
+
+.navbar {
+  margin-bottom:0;
+  z-index:1;
+}
+
+.list-group-item {
+  width:100%;
+}
+
