@@ -5,6 +5,8 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="{{ css_path }}/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ lib_path }}/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{{ css_path }}/style2.css">
 
     <!-- Scripts -->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
@@ -16,22 +18,55 @@
     <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300' rel='stylesheet' type='text/css'>
   </head>
   <body>
-    <div class="panel" id="top_panel">
-        <img id="logo_img" src="../static/birdseye_logo_m_white.png" height="40" width="22">
-      <div id="logo">Birdseye</div>
-      <input class="button" id="monitoring_button" type="button" value="start monitoring">
-      <input class="button" id="sample_button" type="button" value="trace sample">
-    </div>
+
+    <nav class="navbar navbar-default navbar-custom">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img alt="Brand" src="">
+        </a>
+      </div>
+    </nav>
 
     <div id="map_canvas"></div>
 
     <div id="map_overlay">
-      <div id="manual_routes">Manual Routes</div>
-      <div id="ip_list"></div>
-      <input id="search_field" type="text" placeholder="Enter IP or domain">
-      <input class="button" id="submit_button" type="button" value="add">
+      <a href="#" id="manual_routes" class="list-group-item active">
+        Manual Routes
+      </a>
+      <div id="ip_container" class="list-group">
+      </div>
+
+      <ul id="add-ip-container">
+        <li class="list-group-item">
+          <div class="input-group">
+            <input id="search_field" type="text" class="form-control">
+            <span class="input-group-btn">
+              <button class="btn btn-default" id="submit_button" type="button">Add Route</button>
+            </span>
+          </div>
+        </li>
+      </ul>
+
     </div>
-    <script src="{{ js_path }}/google_map.js"></script>
+
+    <!-- Templates -->
+    <div style="display:none;">
+
+      <div class="ip-list-template">
+        <a href="#" class="list-group-item">
+          <span class="badge"></span>
+          <span class="par"></span>
+        </a>
+      </div>
+
+      <div class="loading-template spinner">
+        <img class="loading" src="{{ image_path }}/loading.gif"></img>
+      </div>
+
+
+    </div>
+
+    <!--<script src="{{ js_path }}/google_map.js"></script>-->
     <script src="{{ js_path }}/models.js"></script>
     <script src="{{ js_path }}/views.js"></script>
     <script src="{{ js_path }}/main.js"></script>

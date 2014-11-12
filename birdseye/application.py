@@ -16,7 +16,8 @@ api = restful.Api(app)
 def root():
     """ Entrypoint to application """
     return render_template("birdseye.html", js_path='/static/js',
-            css_path='/static/css', lib_path='/static/lib')
+            css_path='/static/css', lib_path='/static/lib',
+            image_path='/static/images')
 
 
 @app.route('/static/js/<path:filename>')
