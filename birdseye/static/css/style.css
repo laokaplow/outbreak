@@ -20,6 +20,7 @@ html, body, #map_canvas {
   left: 60px;
   border-left-style: 1px solid;
   border-color: #322636;
+  top: 10px;
 }
 
 #logo, header {
@@ -34,9 +35,11 @@ html, body, #map_canvas {
   z-index: 2;
 }
 
-#logo {
+#logo_image {
   color:#ffffff;
-  left: 60px;
+  float: left;
+  position: relative;
+  top: -5px;
 }
 
 
@@ -159,8 +162,10 @@ div.ip {
 }
 
 #map_overlay {
+  background-color: #e5ddcb;
   position: absolute;
   width:350px;
   top:60px;
   left:10px;
+  border-radius: 4px;
 }

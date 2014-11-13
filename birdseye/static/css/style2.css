@@ -26,6 +26,8 @@ html, body, #map_canvas {
 
 
 #manual_routes {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 15px;
   text-align: center;
   background-color: #524656;
   color: #ffffff;
@@ -39,7 +41,7 @@ html, body, #map_canvas {
 
 #ip_container {
   max-height:130px;
-  overflow-y:scroll;
+  overflow-y: auto;
 }
 
 #add-ip-container {
@@ -79,6 +81,20 @@ html, body, #map_canvas {
 .navbar {
   margin-bottom:0;
   z-index:1;
+  background-color: #524656;
+  border-left-style: none;
+  border-right-style: none;
+  border-top-style: none;
+  border-width: 2px;
+  border-radius: 0px;
+}
+
+.navbar-brand {
+  float: left;
+  font-family: 'Titillium Web', sans-serif;
+  letter-spacing: 4px;
+  color: #e5ddcb;
+  font-size: 30px;
 }
 
 .list-group-item {
