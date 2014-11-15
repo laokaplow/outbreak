@@ -70,10 +70,13 @@ var Traceroute = Backbone.Collection.extend({
       var a = obj.attributes;
       var c = new google.maps.LatLng(a.lat, a.lon);
 
+      if(a.city == "") var city_name = "unknown location";
+        else var city_name = a.city;
+
       self.markers.push(new google.maps.Marker({
         position: c,
         map: map,
-        title: obj.cid,
+        title: city_name,
         color: self.color
       }));
 
@@ -82,6 +85,7 @@ var Traceroute = Backbone.Collection.extend({
 
     this.el.find(".spinner").remove();
     this.el.find(".badge").append(this.markers.length);
+    this.el.find(".badge").css("background-color", this.color);
     this.el.find(".badge").before(
         "<span class='icon remove-route glyphicon glyphicon-remove'></span>");
     this.el.find(".badge").before(
