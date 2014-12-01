@@ -80,12 +80,17 @@ var Traceroute = Backbone.Collection.extend({
         color: self.color
       });
 
+      // Format the latitude and longitude input to be more user firendly.
+      var formated_lat = (a.lat >= 0) ? a.lat + " N" : Math.abs(a.lat) + " S";
+      var formated_lon = (a.lon >= 0) ? a.lon + " E" : Math.abs(a.lon) + " W";
+
+      // Update the city information panel on marker click
       google.maps.event.addListener(marker, 'click', function(){
         $("#cityinfo-city").text("City Name: " + a.city);
         $("#cityinfo-country").text("Country: " + a.country);
         $("#cityinfo-ip").text("IP Address: " + a.ip);
-        $("#cityinfo-lat").text("Latitude: " + a.lat);
-        $("#cityinfo-lon").text("Longitude: " + a.lon);
+        $("#cityinfo-lat").text("Latitude: " + formated_lat);
+        $("#cityinfo-lon").text("Longitude: " + formated_lon);
         $("#cityinfo-loss").text("Packet Loss: " + a.loss);
         $("#cityinfo-ping").text("Average Ping: " + a.ping);
       });
