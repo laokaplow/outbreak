@@ -4,9 +4,9 @@
     <title>Birdseye</title>
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="{{ css_path }}/style.css">
     <link rel="stylesheet" type="text/css" href="{{ lib_path }}/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="{{ css_path }}/style2.css">
+    <link rel="stylesheet" type="text/css" href="{{ css_path }}/style.css">
+    <!--<link rel="stylesheet" type="text/css" href="{{ css_path }}/style2.css">-->
 
     <!-- Scripts -->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
@@ -19,7 +19,7 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-default navbar-custom">
+    <nav class="navbar navbar-default">
       <div class="navbar-header">
         <a class="navbar-brand" href="#">Birdseye
           <img id="logo_image" alt="" src="../static/images/birdseye_logo_m_white.png">
@@ -47,6 +47,21 @@
         </li>
       </ul>
 
+    </div>
+
+    <div id="city_overlay">
+      <a href="#" id="manual_routes" class="list-group-item active">
+        City Information
+      </a>
+      <div id="city-information-container" class="list-group">
+        <a href="#" id="cityinfo-city" class="list-group-item">City Name:</a>
+        <a href="#" id="cityinfo-country" class="list-group-item">Coutry:</a>
+        <a href="#" id="cityinfo-ip" class="list-group-item">IP Address:</a>
+        <a href="#" id="cityinfo-lat" class="list-group-item">Latitude:</a>
+        <a href="#" id="cityinfo-lon" class="list-group-item">Longitude:</a>
+        <a href="#" id="cityinfo-loss" class="list-group-item">Packet Loss:</a>
+        <a href="#" id="cityinfo-ping" class="list-group-item">Average Ping:</a>
+      </div>
     </div>
 
     <!-- Templates -->
