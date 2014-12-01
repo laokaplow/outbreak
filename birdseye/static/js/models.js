@@ -86,6 +86,17 @@ var Traceroute = Backbone.Collection.extend({
 
       // Update the city information panel on marker click
       google.maps.event.addListener(marker, 'click', function(){
+        if($("#cityinfo-empty").length > 0) {
+          $("#cityinfo-empty").remove();
+          $("#cityinfo-container").append($("#cityinfo-city"));
+          $("#cityinfo-container").append($("#cityinfo-coutry"));
+          $("#cityinfo-container").append($("#cityinfo-ip"));
+          $("#cityinfo-container").append($("#cityinfo-lat"));
+          $("#cityinfo-container").append($("#cityinfo-lon"));
+          $("#cityinfo-container").append($("#cityinfo-loss"));
+          $("#cityinfo-container").append($("#cityinfo-ping"));
+        }
+
         $("#cityinfo-city").text("City Name: " + a.city);
         $("#cityinfo-country").text("Country: " + a.country);
         $("#cityinfo-ip").text("IP Address: " + a.ip);
