@@ -73,12 +73,24 @@ var Traceroute = Backbone.Collection.extend({
       if(a.city == "") var city_name = "unknown location";
         else var city_name = a.city;
 
-      self.markers.push(new google.maps.Marker({
+      var marker = new google.maps.Marker({
         position: c,
         map: map,
         title: city_name,
         color: self.color
-      }));
+      });
+
+      google.maps.event.addListener(marker, 'click', function(){
+        $("#cityinfo-city").text("City Name: " + a.city);
+        $("#cityinfo-country").text("Country: " + a.country);
+        $("#cityinfo-ip").text("IP Address: " + a.ip);
+        $("#cityinfo-lat").text("Latitude: " + a.lat);
+        $("#cityinfo-lon").text("Longitude: " + a.lon);
+        $("#cityinfo-loss").text("Packet Loss: " + a.loss);
+        $("#cityinfo-ping").text("Average Ping: " + a.ping);
+      });
+
+      self.markers.push(marker);
 
       coords.push(c);
     });
