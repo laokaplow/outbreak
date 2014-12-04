@@ -34,6 +34,18 @@ $ pip install -r test_requirements.txt
 $ bower install
 ```
 
+Installing PCap
+```
+Go to: http://www.tcpdump.org/#latest-release
+Look for: libpcap-1.6.2.tar.gz
+Download/extract
+cd to extracted directory
+$ ./configure
+$ make
+$ sudo make install
+1..2..3..Done! (I hope).
+```
+
 Now run the webserver accordingly
 ```
 $ python ./manage.py runserver
