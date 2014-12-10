@@ -10,30 +10,45 @@ Blah Blah Flaks, PCap blah blah, Jquery blah, Google Maps Blah
 Easy Setup With Docker
 -----
 
-Manual Setup
+Manual Setup for Development
 -----
 **This is just a test beep boop**
 
-If you don't have pip installed you'll need to get it now
+We'll start by installing some programs for our dependency management
 ```
 $ sudo apt-get install python-pip 
+$ sudo apt-get install npm
+$ sudo npm install -g bower
 ```
 
 We don't want to pollute your environment so install virtualenv
 ```
 $ sudo pip install virtualenv
-$ virtualenv env
-$ source ./env/bin/activate
+$ virtualenv ./birdseye/lib/python_modules
+$ source ./birdseye/lib/python_modules/bin/activate
 ```
 
 Now we can safely install our deps
 ```
-$ ./env/bin/pip install -r requirements.txt
+$ pip install -r test_requirements.txt
+$ bower install
+```
+
+Installing PCap
+```
+Go to: http://www.tcpdump.org/#latest-release
+Look for: libpcap-1.6.2.tar.gz
+Download/extract
+cd to extracted directory
+$ ./configure
+$ make
+$ sudo make install
+1..2..3..Done! (I hope).
 ```
 
 Now run the webserver accordingly
 ```
-$ python ./application.py
+$ python ./manage.py runserver
 ```
 
 Meet the Team

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Birdseye</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="{{ lib_path }}/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="{{ css_path }}/style.css">
+    <!--<link rel="stylesheet" type="text/css" href="{{ css_path }}/style2.css">-->
+
+    <!-- Scripts -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="{{ lib_path }}/jquery/dist/jquery.min.js"></script>
+    <script src="{{ lib_path }}/underscore/underscore.js"></script>
+    <script src="{{ lib_path }}/backbone/backbone.js"></script>
+
+    <!-- Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Birdseye
+          <img id="logo_image" alt="" src="../static/images/birdseye_logo_m_white.png">
+        </a>
+      </div>
+    </nav>
+
+    <div id="map_canvas"></div>
+
+    <div id="map_overlay">
+      <a href="#" id="manual_routes" class="list-group-item active">
+        Manual Routes
+      </a>
+      <div id="ip_container" class="list-group">
+      </div>
+
+      <ul id="add-ip-container">
+        <li class="list-group-item">
+          <div class="input-group">
+            <input id="search_field" type="text" class="form-control">
+            <span class="input-group-btn">
+              <button class="btn btn-default" id="submit_button" type="button">Add Route</button>
+            </span>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+
+    <div id="city_overlay">
+      <a href="#" id="manual_routes" class="list-group-item active">
+        City Information
+      </a>
+      <div id="city-information-container" class="list-group">
+        <a href="#" id="cityinfo-city" class="list-group-item">City Name:</a>
+        <a href="#" id="cityinfo-country" class="list-group-item">Coutry:</a>
+        <a href="#" id="cityinfo-ip" class="list-group-item">IP Address:</a>
+        <a href="#" id="cityinfo-lat" class="list-group-item">Latitude:</a>
+        <a href="#" id="cityinfo-lon" class="list-group-item">Longitude:</a>
+        <a href="#" id="cityinfo-loss" class="list-group-item">Packet Loss:</a>
+        <a href="#" id="cityinfo-ping" class="list-group-item">Average Ping:</a>
+      </div>
+    </div>
+
+    <!-- Templates -->
+    <div style="display:none;">
+
+      <div class="ip-list-template">
+        <a href="#" class="list-group-item">
+          <span class="badge"></span>
+          <span class="par"></span>
+        </a>
+      </div>
+
+      <div class="loading-template spinner">
+        <img class="loading" src="{{ image_path }}/loading.gif"></img>
+      </div>
+
+    </div>
+
+    <!--<script src="{{ js_path }}/google_map.js"></script>-->
+    <script src="{{ js_path }}/models.js"></script>
+    <script src="{{ js_path }}/views.js"></script>
+    <script src="{{ js_path }}/main.js"></script>
+  </body>
+</html>
